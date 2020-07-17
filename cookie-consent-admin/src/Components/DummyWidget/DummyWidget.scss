@@ -1,0 +1,17 @@
+cookie-consent  {
+    .PopupContainer {
+        position: unset;
+        width: 100%;
+    }
+
+    .AccordionContainer {
+        max-height: 27vh; //25vh;
+    }
+    .SettingPopupContainer, .Accordion, .AccordionHeader, .AccordionContent, label {
+        transition: .4s;
+    }
+    button {
+        pointer-events: none;
+        transition: .4s;
+    }
+}

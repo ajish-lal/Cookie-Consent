@@ -1,0 +1,53 @@
+@import "../../../Common/Colors.scss";
+
+.WidgetDataForm {
+    background: $white;
+    padding: 10px;
+    border: 1px solid $lightGray;
+    height: 100%;
+    .Header {
+        margin-top: 0;
+    }
+    .DataForm {
+        display: flex;
+        justify-content: space-between;
+        .FieldsWrap {
+            width: 49.4%;
+            border: 1px solid $lightGray;
+            padding: 10px 5px;
+        }
+    }
+    .NoMargin {
+        margin: 0;
+    }
+    .ant-input {
+        color: $black;
+    }
+    textarea.ant-input {
+        min-height: 100px;
+    }
+   
+}
+
+textarea {
+    max-height: 150px;
+}
+
+.AddCategory button {
+    background: #00a1ff;
+    color: $white;
+    line-height: normal;
+}
+.CookieCategoryHeader {
+    label {
+        color: #495057;
+        font-weight: bold;
+    }
+}
+.CookieCategoryFormWrap {
+    width: 100%;
+}
+.CookieCategoryList {
+    width: 100%;
+    padding-top: 23px;
+}

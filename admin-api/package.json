@@ -1,0 +1,23 @@
+{
+  "name": "cookie_consent_api",
+  "version": "1.0.0",
+  "description": "A blazing fast REST APIs with Node.js, MongoDB, Fastify and Swagger.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon --watch src src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Reshma",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "boom": "^7.3.0",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.0.0",
+    "fastify-swagger": "^3.1.1",
+    "mongoose": "^5.9.22",
+    "nodemon": "^2.0.4",
+    "winston": "^3.3.3"
+  }
+}
