@@ -29,7 +29,7 @@ class NavMenu extends React.Component {
                 }}>
                     <Header className="logo">
                         <Row>
-                            <EyeInvisibleFilled style={{ fontSize: '50px', color: '#fff', alignSelf: 'center' }}/>
+                            <EyeInvisibleFilled style={{ fontSize: '40px', color: '#fff', alignSelf: 'center' }}/>
                             <div className="app-name">Privacy Management System</div>
                         </Row>
                     </Header>
