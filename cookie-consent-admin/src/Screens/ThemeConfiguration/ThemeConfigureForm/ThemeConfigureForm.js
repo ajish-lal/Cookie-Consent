@@ -252,6 +252,11 @@ export class ThemeConfigureForm extends Component {
             this.setState({selectedTheme: value});
             this
                 .props
+                .handleChange(TemplateJson.widgetProps.alien);
+        } else if (value === 'alien') {
+            this.setState({selectedTheme: value});
+            this
+                .props
                 .handleChange(TemplateJson.widgetProps.dark);
         } else {
             this
@@ -291,6 +296,7 @@ export class ThemeConfigureForm extends Component {
                                 <Option value="default">Default</Option>
                                 <Option value="light">Light</Option>
                                 <Option value="dark">Dark</Option>
+                                <Option value="alien">Alien</Option>
                             </Select>
                         </Form.Item>
                     </Col>
