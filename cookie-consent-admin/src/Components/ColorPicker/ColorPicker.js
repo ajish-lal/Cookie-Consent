@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './ColorPicker.scss'
-import {TwitterPicker, SketchPicker, SwatchesPicker} from 'react-color';
+import {SwatchesPicker} from 'react-color';
 
 export class ColorPicker extends Component {
     state = {

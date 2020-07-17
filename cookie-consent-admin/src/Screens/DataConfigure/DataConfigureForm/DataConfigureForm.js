@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { Form, Input, Button, Modal, Table, Divider, Row, Col } from 'antd';
+import { Form, Input, Table, Divider, Row, Col } from 'antd';
 import './DataConfigureForm.scss';
 import WidgetDataModel from '../../../Common/WidgetDataModel';
 import DummyJson from '../../../Common/DummyJson';
 import CONSTANTS from '../../../Common/Constants';
 
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 
 class DataConfigureForm extends Component {
     constructor(props) {
