@@ -1,4 +1,4 @@
-const widgetProperties = {
+const widgetData = {
     cookieNotifyData: {
         headingData: {
             text: "This site uses cookies",
@@ -78,6 +78,56 @@ const widgetProperties = {
     alwaysShowPopupOnLoad: false
 };
 
+const widgetTheme = {
+    cookieNotifyData: {
+        headingData: {
+            textColor: "#808080"
+        },
+        contentData: {
+            textColor: "#808080"
+        },
+        acceptButtonData: {
+            textColor: "white",
+            backgroundColor: "#212529"
+        },
+        settingsLink: {
+            textColor: "white",
+            backgroundColor: "#006496"
+        },
+        backgroundColor: "#fff",
+        borderColor: "#e8e2e2"
+    },
+    cookieSettingsData: {
+        headingData: {
+            textColor: "black"
+        },
+        contentData: {
+            textColor: "grey"
+        },
+        acceptButtonData: {
+            textColor: "white",
+            backgroundColor: "#006496"
+        },
+        accordionData: {
+            headerColor: "black",
+            contentColor: "black",
+            toggleSelectedColor: "#2196F3",
+            toggleDefaultColor: "#ccc",
+            backgroundColor: "white",
+            borderColor: "black"
+        },
+        saveButtonData: {
+            textColor: "#000",
+            backgroundColor: "#fff",
+            borderColor: "#000"
+        },
+        backgroundColor: "#fff",
+        borderColor: "#e8e2e2"
+    },
+    position: "right",
+    alwaysShowPopupOnLoad: false
+};
+
 export default {
-    widgetProps : widgetProperties
+    widgetProps : widgetData
 };
