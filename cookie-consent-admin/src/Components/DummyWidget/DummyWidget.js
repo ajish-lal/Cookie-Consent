@@ -1,30 +1,19 @@
-import React, {Component, Fragment} from 'react';
-import './DummyWidget.scss';
+import React, { Component } from "react";
+import "./DummyWidget.scss";
 
 export class DummyWidget extends Component {
+  widget;
+  componentDidMount() {
+    this.widget = document.querySelector("cookie-consent");
+    this.widget.popupProperties = this.props.widgetJsonData;
+  }
 
-    componentDidMount() {
-        const widget = document.querySelector('cookie-consent');
-        widget.popupProperties = this.props.widgetJsonData;
+  render() {
+    if (this.widget) {
+      this.widget.popupProperties = this.props.widgetJsonData;
     }
-
-    // componentDidUpdate(newProps) {
-    //     const widget = document.querySelector('cookie-consent');
-    //     widget.popupProperties = newProps.widgetJsonData;
-    // }
-
-    componentWillReceiveProps(newProps) {
-        const widget = document.querySelector('cookie-consent');
-        widget.popupProperties = newProps.widgetJsonData;
-    }
-
-    render() {
-        return (
-            <Fragment>
-                <cookie-consent></cookie-consent>
-            </Fragment>
-        )
-    }
+    return <cookie-consent></cookie-consent>;
+  }
 }
 
-export default DummyWidget
+export default DummyWidget;

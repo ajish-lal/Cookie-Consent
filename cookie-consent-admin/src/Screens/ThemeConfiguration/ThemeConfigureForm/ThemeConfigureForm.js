@@ -606,7 +606,7 @@ export class ThemeConfigureForm extends Component {
 
         <Row justify="center" className="ThemeButton">
           <Col span={4}>
-            <Button type="primary" danger onClick={this.saveTheme}>
+            <Button type="primary" danger>
               Reset
             </Button>
           </Col>
