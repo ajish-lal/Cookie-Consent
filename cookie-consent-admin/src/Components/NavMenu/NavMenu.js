@@ -1,103 +1,119 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import {Layout, Menu, Row} from 'antd';
-import {PieChartOutlined, GlobalOutlined, EyeInvisibleFilled} from '@ant-design/icons';
-import 'antd/dist/antd.css';
-import './NavMenu.scss';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Layout, Menu, Row, Divider } from 'antd';
+import { PieChartOutlined, GlobalOutlined, EyeInvisibleFilled } from '@ant-design/icons';
 import DataConfigure from '../../Screens/DataConfigure/DataConfigure';
 import ThemeConfiguration from '../../Screens/ThemeConfiguration/ThemeConfiguration';
-import CookieCategoryList from '../../Screens/CookieCategory/CookieCategoryList/CookieCategoryList';
+import DummyWidget from '../../Components/DummyWidget/DummyWidget';
+import DummyJson from '../../Common/DummyJson';
+import 'antd/dist/antd.css';
+import './NavMenu.scss';
 
-const {Header, Content, Sider} = Layout;
-const {SubMenu} = Menu;
+const { Header, Content, Sider } = Layout;
+const { SubMenu } = Menu;
 
 class NavMenu extends React.Component {
-    state = {
-        collapsed: false,
-        currentPath: '/dashboard'
-    };
+  state = {
+    collapsed: false,
+    currentPath: '/dashboard',
+    widgetDataModel: DummyJson.widgetProps,
+  };
 
-    onCollapse = collapsed => {
-        this.setState({collapsed});
-    };
+  onCollapse = (collapsed) => {
+    this.setState({ collapsed });
+  };
 
-    render() {
-        return (
-            <Router>
-                <Layout style={{
-                    minHeight: '100vh'
-                }}>
-                    <Header className="logo">
-                        <Row>
-                            <EyeInvisibleFilled
-                                style={{
-                                fontSize: '40px',
-                                color: '#fff',
-                                alignSelf: 'center'
-                            }}/>
-                            <div className="app-name">Privacy Management System</div>
-                        </Row>
-                    </Header>
-                    <Layout>
-                        <Sider
-                            collapsible
-                            collapsed={this.state.collapsed}
-                            onCollapse={this.onCollapse}>
-                            <Menu theme="dark" defaultSelectedKeys={this.state.currentPath} mode="inline">
-                                <Menu.Item key="/dashboard" icon={< PieChartOutlined />}>
-                                    <span>Dashboard</span>
-                                    <Link to="/dashboard"/>
-                                </Menu.Item>
-                                <SubMenu key="/profiles" icon={< GlobalOutlined />} title="Profiles">
-                                    <SubMenu key="sub1.1" title="Booking Path">
-                                        <Menu.Item key="/profiles/audit">Audit
-                                            <Link to="/profiles/audit"/>
-                                        </Menu.Item>
-                                        <Menu.Item key="/profiles/scan">Cookie Scanner
-                                            <Link to="/profiles/scan"/>
-                                        </Menu.Item>
-                                        <Menu.Item key="/profiles/content">Widget Content
-                                            <Link to="/profiles/content"/>
-                                        </Menu.Item>
-                                        <Menu.Item key="/profiles/theme">Widget Theme
-                                            <Link to="/profiles/theme"/>
-                                        </Menu.Item>
-                                        <Menu.Item key="/profiles/behaviour">Widget Behaviour
-                                            <Link to="/profiles/behaviour"/>
-                                        </Menu.Item>
-                                    </SubMenu>
-                                    <Menu.Item key="4">With Great Sadness</Menu.Item>
-                                    <Menu.Item key="5">Booking Receipt</Menu.Item>
-                                </SubMenu>
-                                <Menu.Item key="6">
-                                    Cookie Categories
-                                    <Link to="/cookie_list"/>
-                                </Menu.Item>
+  dataFromChild = (data) => {
+    this.setState({ widgetDataModel: data });
+    console.log("sadasd", data)
+  };
 
-                            </Menu>
-                        </Sider>
-                        <Layout className="site-layout">
-                            <Content >
-                                <Switch>
-                                    <Route path="/profiles/content">
-                                        <DataConfigure/>
-                                    </Route>
+  render() {
+    return (
+      <Router>
+        <Layout
+          style={{
+            minHeight: '100vh',
+          }}
+        >
+          <Header className="logo" style={{ position: 'fixed', zIndex: '9999', minWidth: '100vw' }}>
+            <Row>
+              <EyeInvisibleFilled
+                style={{
+                  fontSize: '40px',
+                  color: '#fff',
+                  alignSelf: 'center',
+                }}
+              />
+              <div className="app-name">Privacy Management System</div>
+            </Row>
+          </Header>
+          <Layout>
+            <Sider
+              collapsible
+              collapsed={this.state.collapsed}
+              onCollapse={this.onCollapse}
+              style={{ position: 'fixed', minHeight: '100vh', zIndex: '9999', marginTop: 64 }}
+            >
+              <Menu theme="dark" defaultSelectedKeys={this.state.currentPath} mode="inline">
+                <Menu.Item key="/dashboard" icon={<PieChartOutlined />}>
+                  <span>Dashboard</span>
+                  <Link to="/dashboard" />
+                </Menu.Item>
+                <SubMenu key="/profiles" icon={<GlobalOutlined />} title="Profiles">
+                  <SubMenu key="sub1.1" title="Booking Path">
+                    <Menu.Item key="/profiles/audit">
+                      Audit
+                      <Link to="/profiles/audit" />
+                    </Menu.Item>
+                    <Menu.Item key="/profiles/scan">
+                      Cookie Scanner
+                      <Link to="/profiles/scan" />
+                    </Menu.Item>
+                    <Menu.Item key="/profiles/widget/content">
+                      Widget Content
+                      <Link to="/profiles/widget/content" />
+                    </Menu.Item>
+                    <Menu.Item key="/profiles/widget/theme">
+                      Widget Theme
+                      <Link to="/profiles/widget/theme" />
+                    </Menu.Item>
+                    <Menu.Item key="/profiles/behaviour">
+                      Widget Behaviour
+                      <Link to="/profiles/behaviour" />
+                    </Menu.Item>
+                  </SubMenu>
+                  <Menu.Item key="4">With Great Sadness</Menu.Item>
+                  <Menu.Item key="5">Booking Receipt</Menu.Item>
+                </SubMenu>
+              </Menu>
+            </Sider>
+            <Layout className="site-layout">
+              <Content style={{ marginLeft: this.state.collapsed ? 80 : 200, transition: '0.2s', marginTop: 64 }}>
+                <Switch>
+                  <Route path="/profiles/widget/content">
+                    <DataConfigure widgetData={this.state.widgetDataModel} dataFromChild={this.dataFromChild} />
+                  </Route>
 
-                                    <Route path="/profiles/theme">
-                                        <ThemeConfiguration/>
-                                    </Route>
-
-                                    <Route path="/cookie_list">
-                                        <CookieCategoryList/>
-                                    </Route>
-                                </Switch>
-                            </Content>
-                        </Layout>
-                    </Layout>
-                </Layout>
-            </Router>
-        );
-    }
+                  <Route path="/profiles/widget/theme">
+                    <ThemeConfiguration widgetData={this.state.widgetDataModel} dataFromChild={this.dataFromChild} />
+                  </Route>
+                </Switch>
+                <Route path="/profiles/widget">
+                  <div className="WidgetTheme" style={{ width: this.state.collapsed ? '32%' : '29.5%', transition: '0.2s' }}>
+                    <Divider orientation="center" className="ThemeHeader">
+                      Widget Preview
+                    </Divider>
+                    <DummyWidget widgetJsonData={this.state.widgetDataModel} />
+                  </div>
+                </Route>
+              </Content>
+            </Layout>
+          </Layout>
+        </Layout>
+      </Router>
+    );
+  }
 }
 
 export default NavMenu;
