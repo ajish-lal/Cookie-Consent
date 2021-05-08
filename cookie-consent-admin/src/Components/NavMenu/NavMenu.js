@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Layout, Menu, Row, Divider } from 'antd';
 import { PieChartOutlined, GlobalOutlined, EyeInvisibleFilled } from '@ant-design/icons';
 import DataConfigure from '../../Screens/DataConfigure/DataConfigure';
@@ -15,7 +15,7 @@ const { SubMenu } = Menu;
 class NavMenu extends React.Component {
   state = {
     collapsed: false,
-    currentPath: '/profiles/widget/theme',
+    currentPath: '/dashboard',
     widgetDataModel: DummyJson.widgetProps,
   };
 
