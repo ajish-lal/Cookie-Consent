@@ -15,7 +15,7 @@ const { SubMenu } = Menu;
 class NavMenu extends React.Component {
   state = {
     collapsed: false,
-    currentPath: '/dashboard',
+    currentPath: '/profiles/widget/theme',
     widgetDataModel: DummyJson.widgetProps,
   };
 
@@ -25,7 +25,6 @@ class NavMenu extends React.Component {
 
   dataFromChild = (data) => {
     this.setState({ widgetDataModel: data });
-    console.log("sadasd", data)
   };
 
   render() {
@@ -61,7 +60,7 @@ class NavMenu extends React.Component {
                   <Link to="/dashboard" />
                 </Menu.Item>
                 <SubMenu key="/profiles" icon={<GlobalOutlined />} title="Profiles">
-                  <SubMenu key="sub1.1" title="Booking Path">
+                  <SubMenu key="sub1.1" title="Website 1">
                     <Menu.Item key="/profiles/audit">
                       Audit
                       <Link to="/profiles/audit" />
@@ -83,8 +82,8 @@ class NavMenu extends React.Component {
                       <Link to="/profiles/behaviour" />
                     </Menu.Item>
                   </SubMenu>
-                  <Menu.Item key="4">With Great Sadness</Menu.Item>
-                  <Menu.Item key="5">Booking Receipt</Menu.Item>
+                  <Menu.Item key="4">Website 2</Menu.Item>
+                  <Menu.Item key="5">Website 3</Menu.Item>
                 </SubMenu>
               </Menu>
             </Sider>
