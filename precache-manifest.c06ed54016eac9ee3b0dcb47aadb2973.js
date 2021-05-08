@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ec0e058f5435c9a3e96fd93e569625dd",
+    "revision": "1e4a502233e06efd482caa94ed1ecf73",
     "url": "/cookie-consent/index.html"
   },
   {
