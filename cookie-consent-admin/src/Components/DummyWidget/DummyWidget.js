@@ -1,19 +1,25 @@
-import React, { useEffect } from "react";
+
+import React, { Component } from "react";
 import "./DummyWidget.scss";
 
-let dummyWidget = null;
+export class DummyWidget extends Component {
+  widget = null;
+  count = 0;
 
-export function DummyWidget({ widgetJsonData }) {
+  componentDidMount() {
+    this.widget = document.querySelector("cookie-consent");
+    this.widget.popupProperties = this.props.widgetJsonData;
+  }
 
-  useEffect(() => {
-    dummyWidget = document.querySelector("cookie-consent");
-  }, []);
+  componentDidUpdate() {
+    if (this.widget) {
+      this.widget.popupProperties = this.props.widgetJsonData;
+    }
+  }
 
-  useEffect(() => {
-    dummyWidget.popupProperties = widgetJsonData;
-  }, [widgetJsonData]);
-
-  return (<cookie-consent></cookie-consent>);
+  render() {
+    return <cookie-consent></cookie-consent>;
+  }
 }
 
 export default DummyWidget;
