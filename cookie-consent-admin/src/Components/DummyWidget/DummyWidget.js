@@ -4,7 +4,6 @@ import "./DummyWidget.scss";
 
 export class DummyWidget extends Component {
   widget = null;
-  count = 0;
 
   componentDidMount() {
     this.widget = document.querySelector("cookie-consent");

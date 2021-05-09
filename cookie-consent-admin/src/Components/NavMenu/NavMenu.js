@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Layout, Menu, Row, Divider } from 'antd';
 import { PieChartOutlined, GlobalOutlined, EyeInvisibleFilled } from '@ant-design/icons';
@@ -12,7 +12,7 @@ import './NavMenu.scss';
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 
-class NavMenu extends React.Component {
+class NavMenu extends Component {
   state = {
     collapsed: false,
     currentPath: '/dashboard',
