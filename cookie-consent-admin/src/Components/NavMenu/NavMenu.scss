@@ -1,10 +1,19 @@
 .logo {
     padding-left: 25px;
-    background: #002140;
+    background: #2d4154;
 }
 .app-name {
     font-size: 22px;
     font-weight: bold;
     padding-left: 18px;
     color: white;
+}
+.ant-layout-sider-trigger {
+    background: #1d2c3b;
+}
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+    background: #1d2c3b;
+}
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #2d4154;
 }

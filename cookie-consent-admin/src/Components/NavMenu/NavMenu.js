@@ -52,7 +52,7 @@ class NavMenu extends Component {
               collapsible
               collapsed={this.state.collapsed}
               onCollapse={this.onCollapse}
-              style={{ position: 'fixed', minHeight: '100vh', zIndex: '9999', marginTop: 64 }}
+              style={{ position: 'fixed', minHeight: '100vh', zIndex: '9999', marginTop: 64, backgroundColor: '#2d4154' }}
             >
               <Menu theme="dark" defaultSelectedKeys={this.state.currentPath} mode="inline">
                 <Menu.Item key="/dashboard" icon={<PieChartOutlined />}>
